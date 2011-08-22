@@ -12,15 +12,23 @@ directories.
 
 ## Installation
 
+Go into your `zsh` dotfiles directory
+
+  $ cd ~/.zsh
+
 Clone the respository somewhere.
 
-    $ cd ~/.zsh/plugins; git clone git://github.com/lordzork/zsh-bundler-path-helpers.git
+    $ git clone git://github.com/lordzork/zsh-bundler-path-helpers.git plugins/bundler-path-helpers
+
+Alternatively, you can create a submodule.
+
+    $ git submodule add git://github.com/lordzork/zsh-bundler-path-helpers.git plugins/bundler-path-helpers
 
 Link the functions into your `$fpath`.
 
-    $ ln -s plugins/zsh-bundler-path-helpers/functions/* functions/
+    $ ln -s plugins/bundler-path-helpers/functions/* functions/
 
 Make sure the functions are called from the `chpwd()` function. If you don't
 have `chpwd()` defined, you can use the included example.
 
-    $ cp plugins/zsh-bundler-path-helpers/chpwd.example functions/chpwd
+    $ cp plugins/bundler-path-helpers/chpwd.example functions/chpwd
