@@ -16,16 +16,11 @@ Clone the respository somewhere.
 
     $ cd ~/.zsh/plugins; git clone git://github.com/lordzork/zsh-bundler-path-helpers.git
 
-Link it into your `$fpath`.
+Link the functions into your `$fpath`.
 
-    $ ln -s plugins/zsh-bundler-path-helpers/functions functions/bundler-path-helpers
-
-You should have `zsh` configured to automatically load function subdirectories
-into your `$fpath`. This seems to be typical in most `zsh` setups.
-
-    $ fpath=( ~/.zsh/functions/**/*(/N) $fpath )
+    $ ln -s plugins/zsh-bundler-path-helpers/functions/* functions/
 
 Make sure the functions are being called from the `chpwd` function. If you don't
-have `chpwd()` configured, you can use the included example.
+have `chpwd()` defined, you can use the included example.
 
-    $ mv plugins/zsh-bundler-path-helpers/chpwd.example functions/chpwd
+    $ cp plugins/zsh-bundler-path-helpers/chpwd.example functions/chpwd
