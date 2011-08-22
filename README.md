@@ -20,7 +20,7 @@ Link the functions into your `$fpath`.
 
     $ ln -s plugins/zsh-bundler-path-helpers/functions/* functions/
 
-Make sure the functions are being called from the `chpwd` function. If you don't
+    Make sure the functions are being called from the `chpwd()` function. If you don't
 have `chpwd()` defined, you can use the included example.
 
     $ cp plugins/zsh-bundler-path-helpers/chpwd.example functions/chpwd
