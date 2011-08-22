@@ -14,7 +14,7 @@ directories.
 
 Go into your `zsh` dotfiles directory
 
-  $ cd ~/.zsh
+    $ cd ~/.zsh
 
 Clone the respository somewhere.
 
