@@ -1,0 +1,50 @@
+local dir_or_dirs correct_dir
+
+dir_or_dirs=( $PWD/vendor/bundle/ruby/*(/N) )
+
+unset_paths() {
+  if [[ -n $OLD_PATH ]]; then
+    export PATH=$OLD_PATH
+    unset OLD_PATH
+  fi
+
+  if [[ -n $ORIGINAL_GEM_PATH ]]; then
+    export GEM_PATH=$ORIGINAL_GEM_PATH
+    unset ORIGINAL_GEM_PATH
+  else
+    unset GEM_PATH
+  fi
+}
+
+set_paths() {
+  if [[ -z $GEM_PATH ]]; then
+    export GEM_PATH=$correct_dir
+  else
+    export GEM_PATH=$correct_dir:$GEM_PATH
+  fi
+
+  export OLD_PATH=$PATH
+  export PATH=$correct_dir:$PATH
+}
+
+get_correct_ruby_version_for() {
+  case $(ruby --version) in
+    *1.8*)
+      echo $dir_or_dirs[(r)*1.8*]
+      ;;
+    *1.9*)
+      echo $dir_or_dirs[(r)*1.9*]
+  esac
+}
+
+unset_paths
+
+if [[ -z $dir_or_dirs ]]; then
+  return 0
+elif [[ ${#dir_or_dirs} -lt 2 ]]; then
+  correct_dir=$dir_or_dirs
+else
+  correct_dir=$(get_correct_ruby_version_for $dir_or_dirs)
+fi
+
+set_paths
