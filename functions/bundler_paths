@@ -1,7 +1,3 @@
-local dir_or_dirs correct_dir
-
-dir_or_dirs=( $PWD/vendor/bundle/ruby/*(/N) )
-
 unset_paths() {
   if [[ -n $OLD_PATH ]]; then
     export PATH=$OLD_PATH
@@ -37,14 +33,21 @@ get_correct_ruby_version_for() {
   esac
 }
 
-unset_paths
+preexec() {
+  local dir_or_dirs correct_dir
 
-if [[ -z $dir_or_dirs ]]; then
-  return 0
-elif [[ ${#dir_or_dirs} -lt 2 ]]; then
-  correct_dir=$dir_or_dirs
-else
-  correct_dir=$(get_correct_ruby_version_for $dir_or_dirs)
-fi
+  dir_or_dirs=( $PWD/vendor/bundle/ruby/*(/N) )
+  unset_paths
 
-set_paths
+  if [[ -z $dir_or_dirs ]]; then
+    return 0
+  elif [[ ${#dir_or_dirs} -lt 2 ]]; then
+    correct_dir=$dir_or_dirs
+  else
+    correct_dir=$(get_correct_ruby_version_for $dir_or_dirs)
+  fi
+
+  set_paths
+}
+
+eval "$(functions prexec)"

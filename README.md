@@ -1,8 +1,8 @@
 # Bundler Path Helpers
 
-These functions will automatically add and remove bundled gems and binaries
-to your `$GEM_PATH` and `$PATH` respectively. They are run every time you change
-directories.
+This function will automatically add and remove bundled gems and binaries
+to your `$GEM_PATH` and `$PATH` respectively. It is run immediately after
+any command is executed .
 
 ## Conventions
 
@@ -27,8 +27,3 @@ Alternatively, you can create a submodule.
 Link the functions into your `$fpath`.
 
     $ ln -s plugins/bundler-path-helpers/functions/* functions/
-
-Make sure the functions are called from the `chpwd()` function. If you don't
-have `chpwd()` defined, you can use the included example.
-
-    $ cp plugins/bundler-path-helpers/chpwd.example functions/chpwd
