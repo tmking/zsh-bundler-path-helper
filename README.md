@@ -26,4 +26,4 @@ Alternatively, you can create a submodule.
 
 Add the `functions` subdirectory to your `$fpath`. This should be done in your `.zshrc`.
 
-    $ $fpath+=$HOME/.zsh/plugins/*/functions/*(N)
+    $ fpath+=$HOME/.zsh/plugins/*/functions/*(N)
