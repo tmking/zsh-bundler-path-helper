@@ -34,10 +34,15 @@ get_correct_ruby_version_for() {
 }
 
 preexec() {
-  local dir_or_dirs correct_dir
+  local dir_or_dirs correct_dir bundle_path
 
-  dir_or_dirs=( $PWD/vendor/bundle/ruby/*(/N) )
   unset_paths
+
+  [[ -e $PWD/.bundle/config ]] || return 0
+
+  bundle_path=$(grep BUNDLE_PATH .bundle/config | cut -d' ' -f2) || return 0
+
+  dir_or_dirs=( $PWD/$bundle_path/ruby/*(/N) )
 
   if [[ -z $dir_or_dirs ]]; then
     return 0
