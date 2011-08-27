@@ -24,6 +24,6 @@ Alternatively, you can create a submodule.
 
     $ git submodule add git://github.com/lordzork/zsh-bundler-path-helpers.git plugins/bundler-path-helpers
 
-Link the functions into your `$fpath`.
+Add the `functions` subdirectory to your `$fpath`. This should be done in your `.zshrc`.
 
-    $ ln -s plugins/bundler-path-helpers/functions/* functions/
+    $ $fpath+=$HOME/.zsh/plugins/*/functions/*(N)
