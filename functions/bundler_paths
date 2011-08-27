@@ -34,6 +34,7 @@ get_correct_ruby_version_for() {
 }
 
 preexec() {
+	return
   local dir_or_dirs correct_dir bundle_path
 
   unset_paths
