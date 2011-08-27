@@ -20,7 +20,7 @@ set_paths() {
   fi
 
   export OLD_PATH=$PATH
-  export PATH=$correct_dir:$PATH
+  export PATH=$correct_dir/bin:$PATH
 }
 
 get_correct_ruby_version_for() {
