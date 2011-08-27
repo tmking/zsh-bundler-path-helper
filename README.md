@@ -30,5 +30,5 @@ Add the `functions` subdirectory to your `$fpath`. This should be done in your `
 
 ## Notes
 
-* `bundler-path-helper` should coexist peacefully with RVM since it only activates if the current directory's bundle was installed into a manually specified location.
+* `bundler-path-helper` should coexist peacefully with RVM since it only activates if the current directory's bundle was installed into a manually specified location. This isn't something you would typically do if you're using an RVM gemset.
 * `bundler-path-helper` is run immediately after every command. It is lightweight enough that you shouldn't notice any additional lag.
