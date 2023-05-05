@@ -55,6 +55,12 @@ get_correct_ruby_version_for() {
     *2.7*)
       echo $dir_or_dirs[(r)*2.7*]
       ;;
+    *3.0*)
+      echo $dir_or_dirs[(r)*3.0*]
+      ;;
+    *3.1*)
+      echo $dir_or_dirs[(r)*3.1*]
+      ;;
   esac
 }
 
